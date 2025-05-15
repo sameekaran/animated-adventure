@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zero Width Space for WhatsApp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Zero Width Space for WhatsApp</h1>
+    <p>Click the button to copy a Zero Width Space (U+200B) to clipboard</p>
+    
+    <button onclick="copyZeroWidthSpace()">Copy Zero Width Space</button>
+    
+    <p id="status"></p>
+    
+    <script>
+        function copyZeroWidthSpace() {
+            const zeroWidthSpace = '\u200B'; // Zero Width Space (U+200B)
+            
+            navigator.clipboard.writeText(zeroWidthSpace)
+                .then(() => {
+                    document.getElementById('status').textContent = 'Copied! Now paste it in WhatsApp.';
+                    setTimeout(() => {
+                        document.getElementById('status').textContent = '';
+                    }, 3000);
+                })
+                .catch(err => {
+                    document.getElementById('status').textContent = 'Failed to copy: ' + err;
+                });
+        }
+    </script>
+</body>
+</html>
